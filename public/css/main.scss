@@ -1,0 +1,382 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #870082;
+
+    &:hover {
+        color: #ACAC6B !important;
+    }
+}
+
+body {
+    background: #DBDBDB;
+}
+
+$colors : (primaryPurple: #853585a1,
+    darkPurple: #5f385ecc,
+    darkWhite: #EDEDED,
+    secondPrimary: #225d86,
+    secondDark:#312424,
+);
+
+@function color($color-name) {
+    @return map-get($colors, $color-name)
+}
+
+$phone: 600px;
+$tablet: 1200px;
+
+@mixin phone {
+    @media (max-width: #{$phone}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: #{$tablet}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$tablet}) {
+        @content;
+    }
+}
+
+._1 {
+
+    .menutren {
+        background: color(primaryPurple);
+        display: flex;
+        justify-content: space-around;
+        transition: 0.4s;
+
+        &.more {
+            background-color: #8A2087;
+        }
+
+        @include phone {
+            background-color: #8A2087;
+        }
+
+        @include tablet {
+            background-color: #8A2087;
+        }
+
+        .right {
+            font-weight: 500;
+            display: flex;
+
+            @include tablet {
+                display: flex;
+                justify-content: space-around;
+            }
+
+            @include desktop {
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .search {
+
+                p {
+                    background: color(darkPurple);
+                    padding: 10px;
+                }
+
+                @include phone {
+                    font-size: 12px;
+                }
+
+                @include tablet {
+                    font-size: 15px;
+                }
+            }
+
+            .global {
+                p {
+                    background: color(darkPurple);
+                    padding: 10px;
+
+                    @include phone {
+                        font-size: 11px;
+                    }
+
+                    @include tablet {
+                        font-size: 14px;
+                    }
+                }
+
+            }
+
+            .icon {
+                margin-left: 10px;
+
+                ul {
+                    background: color(darkPurple);
+                    padding: 10px;
+
+                    li {
+                        display: inline-block;
+                        margin-right: 5px;
+                        list-style-type: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .menuduoi {
+        background-color: color(darkPurple);
+
+        @include phone {
+            background-color: #5c1b6d;
+        }
+
+        @include tablet {
+            background-color: #5c1b6d;
+        }
+
+        .menulv1 {
+            display: none;
+
+            .bar {
+                cursor: pointer;
+            }
+
+            @include phone {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            @include tablet {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .iconlv2 ul li {
+                display: inline-block;
+                margin: 0px 5px 0px 0px;
+            }
+        }
+    }
+
+    .menulv2 {
+        transition: 0.4s;
+        background: #8a2087bf;
+        color: white;
+        font-size: 16px;
+        transition: 0.4s;
+
+        &.more-more {
+            background-color: #92519C;
+        }
+
+        @include phone {
+            transform: translateY(-1000px);
+            border-top: 1px solid wheat;
+        }
+
+        @include tablet {
+            transform: translateY(-1000px);
+            border-top: 1px solid wheat;
+        }
+
+        &.add {
+            transform: translateY(0px);
+        }
+    }
+
+    .menulv2 ul li {
+        display: inline-block;
+        padding: 5px 20px 10px 0;
+        font-weight: 400;
+        z-index: -999;
+        cursor: pointer;
+
+        @include phone {
+            display: block;
+            text-align: center;
+        }
+
+        @include tablet {
+            display: block;
+            text-align: center;
+        }
+
+        &:last-child {
+            background: color(darkWhite);
+            color: #9F67A4;
+            padding-left: 10px;
+
+            @include phone {
+                background: #8A2087;
+                color: white;
+                padding-left: 0;
+            }
+
+            @include tablet {
+                background: #8A2087;
+                color: white;
+                padding-left: 0;
+            }
+        }
+
+    }
+}
+
+.hero-banner {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: -99;
+
+    .cacicon {
+        position: absolute;
+        z-index: 999;
+        top: 35%;
+        right: 0;
+
+        ul li {
+            list-style-type: none;
+        }
+    }
+
+    .bread {
+        background: #B7B5B6;
+        position: absolute;
+        top: 25%;
+        left: 5%;
+    }
+
+    @include phone {
+        display: none;
+    }
+
+    @include tablet {
+        display: none;
+    }
+}
+
+.context {
+    background: transparent;
+    position: absolute;
+    top: 95%;
+    left: 8%;
+
+    @include tablet {
+        position: static;
+    }
+
+    .on-left {
+        background: #fff;
+        box-shadow: 10px 40px 15px 20px #DADADA;
+
+        @include phone {
+            margin-top: 120px;
+        }
+
+        @include tablet {
+            margin-top: 120px;
+        }
+
+        img {
+            display: none;
+
+            @include tablet {
+                display: block;
+            }
+        }
+    }
+
+    .on-right {
+        @include tablet {
+            margin-top: 100px;
+        }
+
+        .top {
+            background: #fff;
+            box-shadow: 10px 40px 15px 0px #DADADA;
+
+
+            // box-shadow: -5px 25px 15px 20px #DADADA;
+            ._1st {
+
+                span {
+                    font-weight: 600;
+                    font-size: 20px;
+                }
+
+                .width {
+                    height: 5px;
+                    width: 23%;
+                    background: #5c1b6d;
+                }
+            }
+
+            ._2nd {
+                background: #F1F1F1;
+                margin: auto;
+                display: flex;
+
+                img {
+                    height: auto;
+                }
+
+                p {
+                    font-size: 0.8em;
+                }
+            }
+
+            ._3rd {
+                background: #F1F1F1;
+                display: flex;
+
+                @include tablet {
+                    margin-left: -20px;
+                }
+            }
+        }
+
+        .bot {
+            background: #fff;
+            box-shadow: 10px 40px 15px 0px #DADADA;
+
+
+            .qoute {
+                font-size: 18px;
+                font-weight: 400;
+            }
+        }
+    }
+
+}
+
+.backtotop {
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+
+    i {
+        background: color(primaryPurple);
+        font-size: 1.3em;
+        color: white;
+        border-radius: 5px;
+        position: fixed;
+        z-index: 9999;
+        bottom: 0;
+        right: 0;
+        margin: 0 5px 5px 0;
+
+    }
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+}
