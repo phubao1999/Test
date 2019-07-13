@@ -7,16 +7,19 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $(window).scroll(function() {
-    if ($("html,body").scrollTop() > 400) {
+    if ($("html,body").scrollTop() > 94.5) {
       $(".backtotop").addClass("show");
-      $(".menutren").addClass("more");
       $(".menulv2").addClass("more-more");
-    } else if ($("html, body").scrollTop() <= 100) {
+      $("._1").removeClass("fixed-top");
+      $("._1").addClass("fix");
+    } else if ($("html, body").scrollTop() <= 94.5) {
       $(".backtotop").removeClass("show");
-      $(".menutren").removeClass("more");
       $(".menulv2").removeClass("more-more");
+      $("._1").addClass("fixed-top");
+      $("._1").removeClass("fix");
     }
   });
+  console.log($(".menulv2").offset().top);
 }); // Scroll Effect
 
 $(document).ready(function() {

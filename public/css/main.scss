@@ -48,11 +48,26 @@ $tablet: 1200px;
 }
 
 ._1 {
+    &.fix {
+        @include phone {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            width: 100%;
+        }
+
+        @include tablet {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            width: 100%;
+        }
+    }
 
     .menutren {
         background: color(primaryPurple);
-        display: flex;
-        justify-content: space-around;
         transition: 0.4s;
 
         &.more {
@@ -65,6 +80,12 @@ $tablet: 1200px;
 
         @include tablet {
             background-color: #8A2087;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+
         }
 
         .right {
@@ -144,6 +165,17 @@ $tablet: 1200px;
         .menulv1 {
             display: none;
 
+            &.more-more {
+                background-color: #92519C;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 99999;
+                display: flex;
+                justify-content: space-around;
+            }
+
             .bar {
                 cursor: pointer;
             }
@@ -160,7 +192,7 @@ $tablet: 1200px;
 
             .iconlv2 ul li {
                 display: inline-block;
-                margin: 0px 5px 0px 0px;
+                margin: 0px 0px 0px 0px;
             }
         }
     }
@@ -174,6 +206,11 @@ $tablet: 1200px;
 
         &.more-more {
             background-color: #92519C;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 99999;
         }
 
         @include phone {
@@ -188,6 +225,10 @@ $tablet: 1200px;
 
         &.add {
             transform: translateY(0px);
+            position: static;
+            z-index: 0;
+            top: 10;
+            left: 0;
         }
     }
 
@@ -249,7 +290,7 @@ $tablet: 1200px;
     .bread {
         background: #B7B5B6;
         position: absolute;
-        top: 25%;
+        top: 22%;
         left: 5%;
     }
 
@@ -265,7 +306,7 @@ $tablet: 1200px;
 .context {
     background: transparent;
     position: absolute;
-    top: 95%;
+    top: 110%;
     left: 8%;
 
     @include tablet {
@@ -274,7 +315,7 @@ $tablet: 1200px;
 
     .on-left {
         background: #fff;
-        box-shadow: 10px 40px 15px 20px #DADADA;
+        box-shadow: 0px 10px 10px 5px;
 
         @include phone {
             margin-top: 120px;
@@ -295,33 +336,42 @@ $tablet: 1200px;
 
     .on-right {
         @include tablet {
-            margin-top: 100px;
+            margin-top: 120px;
+        }
+
+        @include phone {
+            margin-top: 30px;
         }
 
         .top {
             background: #fff;
-            box-shadow: 10px 40px 15px 0px #DADADA;
-
+            box-shadow: 0px 10px 10px 5px;
 
             // box-shadow: -5px 25px 15px 20px #DADADA;
             ._1st {
 
                 span {
-                    font-weight: 600;
+                    font-weight: 700;
                     font-size: 20px;
                 }
 
                 .width {
                     height: 5px;
-                    width: 23%;
                     background: #5c1b6d;
+
+                    @include phone {
+                        width: 20%;
+                    }
+
+                    @include tablet {
+                        width: 35%;
+                    }
                 }
             }
 
             ._2nd {
                 background: #F1F1F1;
-                margin: auto;
-                display: flex;
+
 
                 img {
                     height: auto;
@@ -330,26 +380,58 @@ $tablet: 1200px;
                 p {
                     font-size: 0.8em;
                 }
+
+                .nd {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
             }
 
             ._3rd {
                 background: #F1F1F1;
                 display: flex;
+                width: 100%;
 
                 @include tablet {
                     margin-left: -20px;
+                }
+
+                p {
+                    margin: auto;
                 }
             }
         }
 
         .bot {
             background: #fff;
-            box-shadow: 10px 40px 15px 0px #DADADA;
-
+            box-shadow: 0px 10px 10px 5px;
 
             .qoute {
-                font-size: 18px;
-                font-weight: 400;
+                font-size: 20px;
+                font-weight: 300;
+                line-height: 2.3em;
+                position: relative;
+                z-index: 999;
+                color: black;
+
+                .first {
+                    font-size: 4em;
+                    position: absolute;
+                    z-index: -999;
+                    color: #b7b5b670;
+                }
+
+                .second {
+                    font-size: 4em;
+                    position: absolute;
+                    z-index: -999;
+                    color: #b7b5b670;
+                    bottom: 0;
+                    right: 0;
+                    margin-right: 0.3em;
+                    margin-block: 0.2em;
+                }
             }
         }
     }
